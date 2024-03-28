@@ -3,7 +3,7 @@ def contains_duplicate(nums):
     :type nums: List[int]
     :rtype: bool
     """
-    if nums == list(set(nums)) or nums[::-1] == list(set(nums)):
+    if sorted(nums) == sorted(list(set(nums))):
         return False
     else:
         return True
@@ -18,5 +18,4 @@ print(contains_duplicate([1, 2, 3, 4]))
 print(contains_duplicate([1]))
 print(contains_duplicate([3, 1]))
 print(contains_duplicate([1, 5, -2, -4, 0]))
-
 
