@@ -22,13 +22,16 @@ def roman_to_int(s):
     """
     integer = 0
     numerals_list = list(s)
-    for index, char in enumerate(numerals_list, start=-1):
+    for index, char in enumerate(numerals_list, start=0):
         integer += -HASH[char] if need_reduce(char, numerals_list, index) else HASH[char]
     return integer
 
 
 def need_reduce(char, numerals_list, index):
-    return char in NEXT.keys() and numerals_list[index + 1] in NEXT[char]
+    try:
+        return char in NEXT.keys() and numerals_list[index + 1] in NEXT[char]
+    except IndexError:
+        return False
 
 
 # ---------- TESTS ----------- #
